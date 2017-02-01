@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Asap');
+
+#faq-container {
+	font-family: 'Asap', sans-serif;
+}
+.question {
+	font-weight: bold;
+}

@@ -1,0 +1,19 @@
+{{#unless deleted}}
+    <div class="form-group" data-noteid="{{noteId}}">
+        {{#each versions}}
+            <div class="version {{#unless latest}}hidden previous{{/unless}}">
+                {{#if latest}}
+                    <span>Made on {{writeDate}}</span>
+                    <textarea class="form-control update-note-input note-input" rows="5" maxlength="250">{{content}}</textarea>
+                    <div id="counter"><span id="count">0</span>/250</div>
+                    <button class="update-note-btn btn">Update</button>
+                    <button class="view-previous-note-btn btn" data-active="false">View Previous Versions</button>
+                    <button class="delete-note-btn btn">Delete</button>
+                {{else}}
+                    <span>Made on {{writeDate}}</span>
+                    <div>{{content}}</div>
+                {{/if}}
+            </div>
+        {{/each}}
+    </div>
+{{/unless}}

@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Asap');
+
+#sidebar-container {
+	height: 100vh;
+	position: fixed;
+	left: 0px;
+	font-family: 'Asap', sans-serif;
+	font-size: 3vmin;
+	background-color: #029f5b;
+	color: #e6e6e6;
+	box-shadow: 3px 0px 3px 3px #e6e6e6;
+	float: left;
+}
+
+#sidebar-container ul {
+	margin-top: 40vh;
+	list-style: none;
+	position: relative;
+	text-align: right;
+	padding-right: 10px;
+	margin-right: 1vh;
+
+}
+
+#sidebar-container img {
+	max-width: 80%;
+	position: absolute;
+	left: 3vh;
+	top: 8vh;
+}
+
+#sidebar-container ul a {
+	text-decoration: none;
+	color: #d9d9d9;
+	text-shadow: -1px 1px 3px #999999;
+	transition: color .25s linear;
+	line-height: 150%;
+}
+
+#sidebar-container ul a:hover {
+	text-decoration: none;
+	color: #a6a6a6;
+}
+
+#sidebar-container li {
+	padding-right: 3px;
+	padding-left: 3px;
+}
+
+#sidebar-container .row, #sidebar-container .col-6{
+	margin: 0;
+}
+
+#sidebar-username {
+	text-align: right;
+	padding: 10px;
+	width: 100%;
+}
+
+
+
+#sidebar-username-and-signout{
+	position: absolute;
+	bottom: 2vh;
+	right: 2vh;
+	font-size: 2.5vmin;
+	max-width: 100%;
+}
+
+#sidebar-container button {
+	background-color: #029f5b;
+	/*position: absolute;*/
+	/*bottom: 2vh;*/
+	/*right: 2vh;*/
+	/*font-size: 2.5vmin;*/
+	border: 1px solid #e6e6e6;
+	transition: background .25s linear;
+}
+
+#sidebar-container  button:hover {
+	background-color: #029756;
+}

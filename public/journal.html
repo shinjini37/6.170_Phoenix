@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Phoenix - Journal</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/sidebar.css">
+	<link rel="stylesheet" type="text/css" href="css/loader.css"/>
+	<link rel="stylesheet" type="text/css" href="css/journal.css">
+</head>
+<body>
+	<div id="sidebar-container"></div>
+	<div id="journal-sort-search-container" class="col-md-9 col-md-offset-2">
+		<div id="search-container">
+			<label for="search-term-input">Search</label>
+			<input id="search-term-input" type="text" placeholder="Type a username...">
+			<ul id="results-list"></ul>
+		</div>
+
+		<div id="sort-dropdown">
+			<label for="sort-select" id="sort-label">Sort by&nbsp;</label>
+			<span class="form-group">
+				<select id="sort-select" class="form-control">
+					<option value="username-AZ">Username: A-Z</option>
+					<option value="username-ZA">Username: Z-A</option>
+					<option value="openTime-ON" selected>Oldest to Newest</option>
+					<option value="openTime-NO">Newest to Oldest</option>
+				</select>
+			</span>
+		</div>
+
+		<div id="journal-container">
+			<table id="connections-history" class="table table-hover">
+				<thead>
+					<tr>
+						<th>With</th>
+						<th>Time Opened</th>
+						<th>Time Closed</th>
+						<th>Connect again?</th>
+						<th>Notes</th>
+					</tr>
+				</thead>
+				<tbody id="connections-history-body">
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div id="loader-container">
+		<div id="loader"></div>
+	</div>
+
+	<div id="scripts">
+		<!-- jQuery -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+		<!--jQuery UI-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+		<!-- Bootstrap (JS) -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+		<!-- Handlebars Runtime -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.runtime.min.js"></script>
+
+		<!-- Handlebars templates -->
+		<script src="js/templates.js"></script>
+
+		<!-- Underscore -->
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
+
+		<!-- Main JavaScript -->
+		<script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/templates.js"></script>
+        <script type="text/javascript" src="js/trie.js"></script>
+		<script src="js/sessionChecker.js"></script>
+		<script type="text/javascript" src="js/sidebar.js"></script>
+		<script type="text/javascript" src="js/loader.js"></script>
+		<script type="text/javascript" src="js/journalSearchAndSort.js"></script>
+		<script type="text/javascript" src="js/JournalWidget.js"></script>
+		<script type="text/javascript" src="js/journal.js"></script>
+
+	</div>
+
+</body>
+</html>

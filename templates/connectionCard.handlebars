@@ -1,0 +1,38 @@
+<div class="connection-card" id="connection-card_{{username}}" data-connectionid="{{connectionId}}">
+    <div class="user-info">
+        <h4>About <span class="username">{{username}}</span> - <span class="about-me">{{aboutMe}}</span></h4>
+        {{#if topics}}
+        <h5>{{username}}'s topics of interest</h5>
+        {{/if}}
+        <ul class="topics-container">
+            {{#each topics}}
+                <li class="topic">{{name}}: {{position}}</li>
+            {{/each}}
+        </ul>
+        <p class="public-email-container">
+            E-mail: <a href="mailto:{{publicEmail}}"><span class="public-email">{{publicEmail}}</span></a>
+        </p>
+        <div class="write-email-container">
+            <textarea id="message-input" rows="9" cols="80">Hello {{ username }}, &#10;&#10;We connected on Phoenix and I'd like to get together. {{#if firstMatchingTime}}It looks like the next time we're both available is {{ firstMatchingTime }}. Let me know if you're still free then and we can set something up. {{else}}It looks like we don't have any overlapping times at the moment, but maybe we can find time to set something up? Let me know! {{/if}}&#10;&#10;See you soon,&#10;&#10;{{ myUsername }}
+            </textarea>
+        </div>
+        <div id="send-email-container">
+            <button id="send-email-button" class="btn">Send</button>
+            <p id="email-sent-msg">Email sent!</p>
+            <div id="send-email-loader" class="loader"></div>
+            <p id="email-send-error">This email did not send. Click Send to try again.</p>
+        </div>
+    </div>
+    <div class="matching-time-and-connection-options">
+        <div class="matching-time">
+            {{#if firstMatchingTime}}
+                <span>The earliest time you're both available is <b>{{firstMatchingTime}}</b>.</span>
+            {{else}}
+                <span>No Common Available Times at the moment...</span>
+            {{/if}}
+        </div>
+        <div class="connection-options">
+            <button id="close-connection-btn" class="btn">Close Connection</button>
+        </div>
+    </div>
+</div>

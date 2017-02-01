@@ -1,0 +1,7 @@
+.idea/
+node_modules/
+npm-debug.log
+public/tests.html
+public/tests.js
+.DS_STORE
+sendgrid.env

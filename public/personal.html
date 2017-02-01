@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Phoenix - Personal Information</title>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+        <!-- Roboto Font -->
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' />
+
+        <!-- Custom styles -->
+        <link rel="stylesheet" type="text/css" href="css/sidebar.css"/>
+        <link rel="stylesheet" type="text/css" href="css/loader.css"/>
+        <link rel="stylesheet" type="text/css" href="css/settings.css"/>
+        <link rel="stylesheet" type="text/css" href="css/personal.css"/>
+        <link rel='stylesheet' href='css/calendarWidget.css' />
+
+
+    </head>
+    <body>
+        <div id="sidebar-container"></div>
+        <div id="personal-and-calendar-container">
+            <div id="calendar-and-bounds-container" class="col-md-6">
+                <h3>Availability</h3>
+                <div id="calendar-container"></div>
+                <div id="bounds-container">
+                    <p>
+                        <span class="warning">How availabilities are used:</span> We only use your availabilities for the next week to find your
+                        suggestions.
+                    </p>
+                    <p>
+                        <span class="warning">Changing the calendar range:</span> This does not change availabilities you have already entered, so if you entered
+                        availabilities outside of the range you have set, they will still be used to find suggestions. Hint: If you
+                        don't want that, change the range from 12am to 12am and clear out availabilities for the times you are unavailable
+                        and set your range again.
+                    </p>
+                    <div id="bounds-input">
+                        <label class="time-bound" for="start">Change Start Time: <input id="start" type="number" min="1" max="12" maxlength="2"></label>
+                        <span class="form-group col-md-2">
+                            <select id="start-am-pm-select" class="form-control">
+                                <option value="0">am</option>
+                                <option value="1">pm</option>
+                            </select>
+                        </span>
+                        <label class="time-bound" for="end">Change End Time: <input id="end" type="number" min="1" max="12" maxlength="2"></label>
+                        <span class="form-group col-md-2">
+                            <select id="end-am-pm-select" class="form-control">
+                                <option value="0">am</option>
+                                <option value="1">pm</option>
+                            </select>
+                        </span>
+
+                        <button class="btn" id="update-calendar-bounds">Update Calendar Range</button>
+                    </div>
+                </div>
+            </div><!--calendar-and-bounds-container-->
+            <div id="personal-container" class="col-md-6">
+                <h3>About <span id="username"></span></h3>
+                <div id="about-me">
+                    <textarea class="form-control" id="about-me-input" rows="5" maxlength="250"></textarea>
+                    <div id="counter"><span id="count">0</span>/250</div>
+                </div>
+
+                <div id="location-info">
+                    <label for="location-input">Zip Code <input id="location-input" type="text" maxlength="5" name="location"></label>
+                    <label for="location-radius-input">Location Radius<input id="location-radius-input" type="text" maxlength="5" name="location-radius">miles</label>
+                    <!--circumference of the earth ~ 25,000 mi-->
+                </div>
+                <div id="information-update-container">
+                    <div id="information-loader-container">
+                        <button id="information-update" class="btn">Update About Me, Zipcode and Radius</button>
+                        <div id="information-update-loader" class="loader"></div>
+                    </div>
+                    <div id="information-response-container">
+                        <p id="information-updated-success">Personal information updated!</p>
+                        <p id="about-me-updated-failure">Your "About Me" section could not be updated. Please try again.</p>
+                        <p id="location-updated-failure">Your location could not be updated. Please make sure you are entering a valid zip code and try again.</p>
+                        <p id="radius-updated-failure">Your search radius could not be updated. Please try again.</p>
+                    </div><!--information-response-container-->
+                </div><!--information-update-container-->
+            </div><!--personal container-->
+            <div id="all-topics-stuff">
+                <div id="topics-container">
+                    <h3>Topics</h3>
+                </div><!--topics-container-->
+
+                <div id="topics-info">
+                    <h4>Topic Overlap for Suggested Users</h4>
+                    <form>
+                        <div class="radio">
+                            <label><input type="radio" name="topic-overlap" checked value="2,2" >Match all Topics and their Positions</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="topic-overlap" value="2,0" >Match all Topics, any Position is fine</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="topic-overlap" value="2,-1" >Match all Topics, but different Positions</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="topic-overlap" value="1,2" >Match some Topics and their Positions</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="topic-overlap" value="1,0" >Match some Topics, any Position is fine</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="topic-overlap" value="-1,0" >All different Topics</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="topic-overlap" value="0,0" >Doesn't Matter</label>
+                        </div>
+                    </form>
+                </div>
+            </div><!--all topics stuff-->
+            <div id="settings-container" class="col-md-12">
+                <h3>Settings</h3>
+                <table>
+                    <tr id="connection-ready-row">
+                        <td><input type="checkbox" id="connection-ready-checkbox"></td>
+                        <td id="connection-ready">Always ask before searching for a new connection</td>
+                    </tr>
+                </table>
+            </div>
+        </div><!--personal and bounds container-->
+        <div id="loader-container">
+            <div id="loader"></div>
+        </div>
+
+        <div class="modal fade" id="introduction" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Welcome to Phoenix!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            To get started, please fill out your <b>availabilities</b> for the next
+                            week,  your <b>location</b>, and <b>topics</b> you'd like to talk about. This will help us find other users for you to meet. You can use <b>topic overlap</b> to let us know how you'd like to be matched.
+                        </p>
+                        <p>
+                            Once you've filled out your information, check out your <b>dashboard</b> to see your suggestions and connect with other users. Best of luck!
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn modal-close-btn" data-dismiss="modal">I'm ready</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+
+        <div id="scripts">
+            <!-- jQuery -->
+            <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+            <!--jQuery UI-->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+            <!-- Bootstrap (JS) -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+            <!-- Handlebars Runtime -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.runtime.min.js"></script>
+
+            <!-- Handlebars templates -->
+            <script src="js/templates.js"></script>
+
+            <!-- Underscore -->
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
+
+            <!-- Main JavaScript Calendar-->
+            <script src="js/CalendarWidget.js"></script>
+            <script src="js/calendar.js"></script>
+
+            <!-- Main JavaScript Personal-->
+            <script src="js/utils.js"></script>
+            <script src="js/TopicWidget.js"></script>
+            <script src="js/sidebar.js"></script>
+            <script src="js/sessionChecker.js"></script>
+            <script src="js/loader.js"></script>
+            <script src="js/settings.js"></script>
+            <script src="js/personal.js"></script>
+        </div>
+
+    </body>
+</html>

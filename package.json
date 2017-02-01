@@ -1,0 +1,29 @@
+{
+  "name": "phoenix-drop-table-teams",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "handlebars templates/ -f public/js/templates.js && node ./bin/www",
+    "test": "mocha"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "bluebird": "^3.4.6",
+    "body-parser": "~1.15.1",
+    "chai": "^3.5.0",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "express": "~4.13.4",
+    "express-handlebars": "^2.0.1",
+    "express-session": "^1.7.6",
+    "handlebars": "^4.0.5",
+    "hbs": "~4.0.0",
+    "mocha": "^3.1.0",
+    "moment": "^2.17.1",
+    "mongoose": "^4.6.3",
+    "morgan": "~1.7.0",
+    "sendgrid": "^4.7.1",
+    "serve-favicon": "~2.3.0",
+    "zipcodes": "^2.1.0"
+  }
+}

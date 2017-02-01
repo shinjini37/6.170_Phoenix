@@ -1,0 +1,19 @@
+<div class="suggestion-card" id="suggestion-card_{{username}}">
+    <div class="user-info">
+        <h4>
+            About <span class="username">{{username}}</span> - <span class="about-me">{{aboutMe}}</span>
+        </h4>
+        {{#if topics}}
+        <h5>{{username}}'s topics of interest</h5>
+        {{/if}}
+        <ul class="topics-container">
+            {{#each topics}}
+                <li class="topic">{{name}}: {{position}}</li>
+            {{/each}}
+        </ul>
+    </div>
+    <div class="interest">
+        <label for="interested-checkbox">Interested?</label>
+            <input type="checkbox" class="interested-checkbox" {{#if interested}}checked{{/if}}>
+    </div>
+</div>

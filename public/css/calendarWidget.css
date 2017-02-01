@@ -1,0 +1,194 @@
+/* http://stackoverflow.com/questions/69430/is-there-a-way-to-make-text-unselectable-on-an-html-page */
+.unhighlightable-text {
+   -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+   cursor: default;
+}
+
+
+
+#calendar {
+    width: 94%;
+    margin: 0px auto 10px auto;
+}
+
+#week-selector {
+    height: 25px;
+    /*border: 1px solid black;*/
+    border-radius: 5px 5px 0px 0px;
+    background-color: white;
+    color: black;
+
+}
+
+#selected-week{
+    background-color: #029f5b;
+}
+
+#selected-week-text{
+    color: white;
+    font-size: 20px;
+}
+
+.clickable-text {
+    cursor: pointer;
+}
+
+.clickable-text-disabled {
+    cursor: not-allowed;
+    background-color: #E8E8E8;
+}
+
+#next-week-btn, #prev-week-btn{
+    font-weight: 900;
+    font-size: 20px;
+}
+
+#next-week-btn{
+    border: 1px solid #bfbfbf;
+    border-radius: 0px 5px 0px 0px;
+    background-color: #bfbfbf;
+}
+
+#next-week-btn p {
+    color: white;
+}
+
+#prev-week-btn{
+    border: 1px solid #bfbfbf;
+    border-radius: 5px 0px 0px 0px;
+    background-color: #bfbfbf;
+}
+
+#prev-week-btn p{
+    color: white;
+}
+
+#next-week-btn.clickable-text:hover, #prev-week-btn.clickable-text:hover{
+    background-color: #808080;
+    transition: all 0.25s;
+}
+
+#week-selector div {
+    height: 100%;
+    position: relative;
+    display: inline;
+}
+
+
+.center-text {
+    margin: 0px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 120%;
+}
+
+#time-selector {
+    top: 8%;
+    height: 92%;
+
+}
+
+#time-range{
+    background-color: whitesmoke;
+    border-left: 1px solid grey;
+}
+
+#time-range .time-selector-header{
+    height: 36px;
+}
+
+.time-selector-header{
+    color: black;
+    background-color: white;
+    font-weight: bold;
+}
+
+
+/*#time-selector-col-sat{*/
+    /*border-radius: 0px 0px 5px 0px;*/
+/*}*/
+
+.col-8 {
+    width: 12.5%;
+    height: 100%;
+    display: inline-block;
+    border-right: 1px solid grey;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    vertical-align: top;
+}
+
+.time-selector-header {
+    height: 36px;
+    border: none;
+	text-align: center;
+}
+
+p.time-selector-header-text {
+    margin: 0px;
+    padding: 2px;
+    font-size: 90%;
+    height: 18px;
+}
+
+.time-range-cell {
+    height: 20px;
+    border: none;
+    border-top: 1px solid grey;
+    text-align: center;
+    background-color: white;
+}
+
+.time-selector-cell {
+    height: 20px;
+    border: none;
+    border-top: 1px solid grey;
+    text-align: center;
+    background-color: white;
+    cursor: pointer;
+}
+
+.time-selector-cell:hover {
+    background-color: #d3d3d3;
+    transition: all 0.25s;
+}
+
+.time-selector-left-range, .time-selector-right-range {
+    height: 100%;
+    display: inline-block;
+}
+
+
+.time-selector-left-range {
+    width: 100%;
+    /*position: absolute;*/
+}
+.time-selector-right-range {
+    /*width: 67%;*/
+}
+
+.time-selector-range-desired {
+    background: #A1D36E;
+}
+
+/*.time-selector-range-desired:hover {*/
+    /*background: #81A958;*/
+    /*transition: all 0.25s;*/
+/*}*/
+
+.time-selector-range-available {
+    background: #0e62c7;
+    /*opacity: 0.5;*/
+}
+
+.time-selector-range-available.time-selector-range-desired {
+    /*background: #86D3C4;*/
+    background: #43B7D3;
+    /*opacity: 0.2;*/
+}

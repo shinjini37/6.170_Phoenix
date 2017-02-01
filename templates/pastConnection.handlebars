@@ -1,0 +1,16 @@
+<tr class="connection" data-connectionid="{{connectionId}}" data-connectusername="{{connectUsername}}">
+	<td>{{connectUsername}}</td>
+	<td>{{openDate}}</td>
+	<td>{{#if closeDate}}{{closeDate}}{{/if}}</td>
+    <td><input {{#if stillInterested}}checked{{/if}} type="checkbox" class="still-interested"></td>
+    <td class="notes">
+        <div class="form-group" id="new-note-container">
+            <textarea class="form-control new-note-input note-input" rows="5" maxlength="250"></textarea>
+            <div id="counter"><span id="count">0</span>/250</div>
+            <button class="add-note-btn btn">Add Note</button>
+        </div>
+        {{#each notes}}
+            {{> note}}
+        {{/each}}
+    </td>
+</tr>

@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css?family=Asap');
+
+body {
+    font-family: 'Asap', sans-serif;
+}
+.hidden{
+    display: none;
+}
+
+#connection-ready{
+    margin: auto;
+}
+
+#dashboard-container{
+    margin: auto;
+    width: 100%;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 6px 2px #e6e6e6;
+    text-align: center;
+}
+
+.connection-card, .suggestion-card{
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+.connection-card{
+    position: relative;
+    box-shadow: inset -4px -6px 20px 5px #ff9a75;
+    text-align: left;
+}
+
+.connection-card .user-info{
+    width: 80%;
+}
+
+
+
+.connection-card .write-email-container{
+    width: 100%;
+}
+
+.connection-card #message-input{
+    width: 80%;
+}
+
+.suggestion-card{
+    position: relative;
+    box-shadow: inset -4px -4px 10px 1px #ffd2c1;
+    text-align: left;
+}
+
+
+.user-info{
+    margin: 15px;
+}
+
+.username{
+    font-weight: bold;
+}
+
+.about-me{
+    font-style: italic;
+}
+
+.user-info {
+    display: inline-block;
+}
+
+.suggestion-card .interest, .connection-card .matching-time-and-connection-options{
+    display: inline-block;
+}
+
+.interest {
+    float: right;
+    position: absolute;
+    top: 45%;
+    right: 10%;
+}
+
+.matching-time-and-connection-options {
+    float: right;
+    position: absolute;
+    top: 30%;
+    right: 10%;
+    width: 20%;
+}
+
+.matching-time {
+    padding: 10px;
+    margin-bottom: 10%;
+    /*height: 80%;*/
+}
+.connection-options{
+    /*height: 20%;*/
+    padding: 20px;
+}
+
+.container {
+    position: relative;
+    left: 16vh;
+    width: 70%;
+    margin: auto;
+    text-align: center;
+}
+
+#signal-ready-for-next, #cancel-ready-for-next {
+    font-size: 3vh;
+    padding: 2vh;
+}
+
+#send-email-container {
+    display: inline-block;
+}
+
+#send-email-container * {
+    display: inline-block;
+    margin: 3px auto;
+}
+
+#send-email-loader {
+    margin: 3px auto;
+    font-size: 3px;
+}
+
+#email-sent-msg {
+    color: green;
+}
+
+#email-send-error {
+    color: red;
+}

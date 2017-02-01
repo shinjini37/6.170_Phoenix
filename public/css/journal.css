@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Asap');
+
+.hidden{
+    display: none;
+}
+
+#results-list {
+	list-style: none;
+}
+
+#search-container {
+	float: left;
+}
+
+#sort-dropdown {
+	float: right;
+}
+#journal-sort-search-container{
+    font-family: 'Asap', sans-serif;
+	position: absolute;
+    margin-left: 23vw;
+    margin-top: 10px;
+    max-width: 78%;
+    min-width: 50vw;
+}
